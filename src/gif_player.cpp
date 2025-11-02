@@ -11,15 +11,16 @@
 
 GifPlayer *GifPlayer::instance = nullptr;
 
-extern "C" {
-  void GIFDrawCallback(GIFDRAW *pDraw) {
-    if (GifPlayer::instance) GifPlayer::instance->handleGifDraw(pDraw);
+// Implementación del callback global
+extern "C" void GIFDrawCallback(GIFDRAW *pDraw) {
+  if (GifPlayer::instance) {
+    GifPlayer::instance->handleGifDraw(pDraw);
   }
 }
 
 GifPlayer::GifPlayer(){
   gif = new AnimatedGIF();
-  gif->begin(GIFDrawCallback);
+  gif->begin();
   instance = this;
 }
 
@@ -36,7 +37,7 @@ void GifPlayer::setPanelConfig(const LedPanelCfg &ledCfg){
 }
 
 bool GifPlayer::begin(const LedPanelCfg &ledCfg){
-  setPanelConfig(ledLedCfg = ledCfg); // set config
+  setPanelConfig(ledCfg); // set config
   // Note: the above line intentionally uses a temporary variable name; ensure build compiles.
   // For safety, reassign properly:
   cfg = ledCfg;
@@ -64,11 +65,22 @@ bool GifPlayer::playGif(const char *path, bool loop){
     return false;
   }
 
-  if (!gif->open(&gifFile)){
-    Serial.printf("[GIF] playGif(): AnimatedGIF open failed for %s\n", path);
+  uint8_t *buffer = (uint8_t *)malloc(gifFile.size());
+  if (!buffer) {
+    Serial.println("[GIF] playGif(): Failed to allocate memory");
     gifFile.close();
     return false;
   }
+  
+  gifFile.read(buffer, gifFile.size());
+  gifFile.close();
+  
+  if (gif->open(buffer, gifFile.size(), GIFDrawCallback) != 0) {
+    Serial.printf("[GIF] playGif(): AnimatedGIF open failed for %s\n", path);
+    free(buffer);
+    return false;
+  }
+  free(buffer);
 
   loopMode = loop;
   currentPath = String(path);
@@ -99,10 +111,22 @@ void GifPlayer::loop(){
       Serial.println("[GIF] loop(): restarting GIF (loop mode)");
       gif->close();
       gifFile.seek(0);
-      if (!gif->open(&gifFile)){
+      uint8_t *buffer = (uint8_t *)malloc(gifFile.size());
+      if (!buffer) {
+        Serial.println("[GIF] loop(): Failed to allocate memory for reopening");
+        stop();
+        return;
+      }
+      
+      gifFile.read(buffer, gifFile.size());
+      gifFile.close();
+      
+      if (gif->open(buffer, gifFile.size(), GIFDrawCallback) != 0) {
         Serial.println("[GIF] loop(): failed to reopen GIF for looping");
+        free(buffer);
         stop();
       }
+      free(buffer);
     } else {
       stop();
     }

@@ -16,7 +16,7 @@
 #include <ESPmDNS.h>
 #include <ArduinoJson.h>
 #include <time.h>
-#include "gif_player.h"
+#include "gif_player.h"  // Incluye LedPanelCfg
 
 WebServer server(80);
 Preferences prefs;
@@ -29,7 +29,6 @@ const char* FIRMWARE_VERSION = "0.3";
 #endif
 
 struct ScheduleEntry { bool enabled = false; String start = "08:00"; String end = "18:00"; };
-struct LedPanelCfg { int pin=4; int panelWidth=8; int panelHeight=8; int chainX=1; int chainY=1; String firstCorner="TL"; bool serpentine=true; };
 
 struct Config {
   bool apMode = false;

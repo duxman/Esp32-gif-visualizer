@@ -24,7 +24,11 @@ struct LedPanelCfg {
   bool serpentine;
 };
 
-void GIFDrawCallback(GIFDRAW *pDraw);
+// Declaración anticipada de GifPlayer para el friend
+class GifPlayer;
+
+// Declaración del callback como función externa C
+extern "C" void GIFDrawCallback(GIFDRAW *pDraw);
 
 class GifPlayer {
 public:
@@ -49,6 +53,9 @@ public:
 
   // Config del panel
   void setPanelConfig(const LedPanelCfg &ledCfg);
+
+  // Declarar el callback como friend para que pueda acceder a los miembros privados
+  friend void GIFDrawCallback(GIFDRAW *pDraw);
 
 private:
   Adafruit_NeoPixel *strip = nullptr;
