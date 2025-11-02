@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Configuración ESP32</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding: 1.5rem; background: #f7fafc; }
+    .card { border-radius: 12px; }
+    .form-section { margin-bottom: 1rem; }
+    .small-note { font-size: .85rem; color: #666; }
+    #panelCanvas { background: #111; border-radius: 6px; display: block; margin: 0 auto; }
+    .legend { font-size: .85rem; color: #333; }
+    .version-badge { font-weight:600; font-size:0.9rem; color:#fff; background:#6c757d; padding:4px 8px; border-radius:8px; }
+    .gif-thumb { max-width: 200px; max-height: 120px; background:#000; border-radius:6px; display:block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="d-flex align-items-center mb-2">
+      <h3 class="me-3">Configurador ESP32 <small id="uiVersion" class="text-muted"></small></h3>
+      <div id="versionBadge" class="version-badge ms-auto">v0.3</div>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <p class="small-note">Interfaz moderna con pestañas. Guarda, edita y aplica la configuración.</p>
+
+        <ul class="nav nav-tabs" id="mainTabs" role="tablist">
+          <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#network">Red</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#schedule">Horario</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#led">Panel LED</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#gifs">GIFs</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#other">Otros</button></li>
+        </ul>
+
+        <div class="tab-content mt-3">
+          <!-- Network tab -->
+          <div class="tab-pane fade show active" id="network" role="tabpanel">
+            <form id="netForm">
+              <div class="form-section">
+                <label class="form-label">Modo</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="mode" id="modeSta" value="sta" checked>
+                  <label class="form-check-label" for="modeSta">Estación (STA)</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="mode" id="modeAp" value="ap">
+                  <label class="form-check-label" for="modeAp">Punto de Acceso (AP)</label>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <label class="form-label">SSID</label>
+                <input class="form-control" id="ssid" placeholder="Nombre de la red / AP">
+              </div>
+
+              <div class="form-section">
+                <label class="form-label">Contraseña (mín 8 para AP con seguridad)</label>
+                <input class="form-control" id="password" type="password" placeholder="Contraseña WiFi">
+              </div>
+
+              <div class="form-section">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="useStaticIP">
+                  <label class="form-check-label" for="useStaticIP">Usar IP estática</label>
+                </div>
+                <div class="row mt-2 g-2" id="staticIpFields" style="display:none;">
+                  <div class="col-12 col-md-4">
+                    <input class="form-control" id="staticIP" placeholder="IP (ej. 192.168.1.50)">
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <input class="form-control" id="gateway" placeholder="Gateway (ej. 192.168.1.1)">
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <input class="form-control" id="subnet" placeholder="Máscara (ej. 255.255.255.0)">
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="form-section">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="mdnsEnabled">
+                  <label class="form-check-label" for="mdnsEnabled">Habilitar mDNS</label>
+                </div>
+                <div class="mt-2" id="mdnsFields" style="display:none;">
+                  <label class="form-label">Nombre mDNS</label>
+                  <input class="form-control" id="mdnsName" placeholder="ej. mi-esp32">
+                  <div class="small-note mt-1">Accesible como &lt;nombre&gt;.local si la red lo soporta.</div>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="form-section">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="ntpEnabled">
+                  <label class="form-check-label" for="ntpEnabled">Habilitar NTP</label>
+                </div>
+                <div class="mt-2" id="ntpFields" style="display:none;">
+                  <label class="form-label">Servidor NTP</label>
+                  <input class="form-control" id="ntpServer" placeholder="pool.ntp.org">
+                  <label class="form-label mt-2">Offset zona (minutos)</label>
+                  <input class="form-control" id="timezoneOffset" type="number" placeholder="ej. 60">
+                  <div class="mt-2 d-flex gap-2">
+                    <button type="button" id="forceNtpBtn" class="btn btn-outline-primary btn-sm">Forzar sincronización NTP</button>
+                    <div id="ntpStatus" class="align-self-center text-muted small"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 d-flex gap-2">
+                <button type="button" id="saveBtn" class="btn btn-primary">Guardar y aplicar</button>
+                <button type="button" id="reloadBtn" class="btn btn-secondary">Recargar configuración</button>
+                <div id="status" class="align-self-center text-muted small"></div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Schedule tab -->
+          <div class="tab-pane fade" id="schedule" role="tabpanel">
+            <form id="scheduleForm">
+              <div class="form-section">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="scheduleEnabled">
+                  <label class="form-check-label" for="scheduleEnabled">Horario habilitado</label>
+                </div>
+              </div>
+
+              <div class="row g-2">
+                <div class="col-6">
+                  <label class="form-label">Inicio</label>
+                  <input type="time" class="form-control" id="scheduleStart" value="08:00">
+                </div>
+                <div class="col-6">
+                  <label class="form-label">Fin</label>
+                  <input type="time" class="form-control" id="scheduleEnd" value="18:00">
+                </div>
+              </div>
+
+              <div class="form-section mt-3">
+                <label class="form-label">Pin del relé (GPIO)</label>
+                <input class="form-control" id="relayPin" type="number" placeholder="ej. 2">
+                <div class="small-note mt-1">Asegúrate de indicar el pin correcto. El código asume relé activo por HIGH.</div>
+              </div>
+
+              <div class="mt-3 d-flex gap-2">
+                <button type="button" id="saveScheduleBtn" class="btn btn-primary">Guardar horario</button>
+                <button type="button" id="reloadScheduleBtn" class="btn btn-secondary">Recargar</button>
+                <div id="scheduleStatus" class="align-self-center text-muted small"></div>
+              </div>
+              <div class="small-note mt-2">El horario puede usarse para activar/desactivar funciones. Necesitas NTP/RTC para aplicarlo correctamente.</div>
+            </form>
+          </div>
+
+          <!-- LED panel tab -->
+          <div class="tab-pane fade" id="led" role="tabpanel">
+            <form id="ledForm">
+              <div class="form-section row g-2">
+                <div class="col-6">
+                  <label class="form-label">Pin (GPIO)</label>
+                  <input class="form-control" id="ledPin" type="number" placeholder="ej. 4">
+                </div>
+                <div class="col-6">
+                  <label class="form-label">Serpentina dentro del panel</label>
+                  <div class="form-check form-switch mt-2">
+                    <input class="form-check-input" type="checkbox" id="ledSerpentine">
+                    <label class="form-check-label" for="ledSerpentine">Serpentina</label>
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <label class="form-label">Ancho panel (px leds)</label>
+                  <input class="form-control" id="panelWidth" type="number" min="1" value="8">
+                </div>
+                <div class="col-4">
+                  <label class="form-label">Alto panel (px leds)</label>
+                  <input class="form-control" id="panelHeight" type="number" min="1" value="8">
+                </div>
+                <div class="col-4">
+                  <label class="form-label">Panels encadenados (X × Y)</label>
+                  <div class="d-flex gap-2">
+                    <input class="form-control" id="chainX" type="number" min="1" value="1">
+                    <input class="form-control" id="chainY" type="number" min="1" value="1">
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <label class="form-label">Esquina del primer LED</label>
+                  <select class="form-select" id="firstCorner">
+                    <option value="TL">Superior izquierda (TL)</option>
+                    <option value="TR">Superior derecha (TR)</option>
+                    <option value="BL">Inferior izquierda (BL)</option>
+                    <option value="BR">Inferior derecha (BR)</option>
+                  </select>
+                </div>
+
+                <div class="col-6">
+                  <label class="form-label">Pin del relé (GPIO) — referencia</label>
+                  <input class="form-control" id="relayPinRef" type="number" placeholder="ej. 2">
+                </div>
+              </div>
+
+              <div class="mt-3 d-flex gap-2">
+                <button type="button" id="saveLedBtn" class="btn btn-primary">Guardar panel</button>
+                <button type="button" id="reloadLedBtn" class="btn btn-secondary">Recargar</button>
+                <div id="ledStatus" class="align-self-center text-muted small"></div>
+              </div>
+
+            </form>
+
+            <hr>
+
+            <div class="mb-2 legend">Vista previa del panel (los rectángulos representan LEDs; colores de ejemplo). Haz zoom con el slider.</div>
+            <div class="d-flex gap-3 align-items-center mb-1">
+              <label class="mb-0 small">Zoom</label>
+              <input id="zoom" type="range" min="6" max="30" value="14">
+              <div id="sizeInfo" class="small text-muted"></div>
+            </div>
+            <canvas id="panelCanvas" width="400" height="300"></canvas>
+            <div class="mt-2 legend">
+              <div>Leyenda:</div>
+              <div>- Número dentro de cada LED indica índice linear (orden de envío)</div>
+              <div>- Flechas y borde muestran esquina inicio y orientación serpentina</div>
+            </div>
+          </div>
+
+          <!-- GIFs tab -->
+          <div class="tab-pane fade" id="gifs" role="tabpanel">
+            <h5>Gestión de GIFs</h5>
+
+            <div class="mb-3">
+              <form id="uploadForm">
+                <label class="form-label">Subir GIF (.gif)</label>
+                <input class="form-control" type="file" id="gifFile" accept=".gif">
+                <div class="mt-2">
+                  <button type="button" id="uploadBtn" class="btn btn-primary btn-sm">Subir</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex gap-2">
+                <button id="refreshGifsBtn" class="btn btn-outline-secondary btn-sm">Recargar lista</button>
+                <button id="stopGifBtn" class="btn btn-outline-danger btn-sm">Detener reproducción</button>
+              </div>
+            </div>
+
+            <div id="gifsList" class="row g-3"></div>
+
+            <hr>
+            <div id="gifPreview" class="mt-3">
+              <h6>Preview</h6>
+              <img id="previewImg" class="gif-thumb" src="" alt="Preview">
+              <div id="previewInfo" class="small text-muted mt-1"></div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="other"> <p>Otras opciones...</p> </div>
+        </div>
+
+      </div>
+    </div>
+    <footer class="mt-3 text-muted small">ESP32 Configurator · Hecho con JavaScript (Fetch API)</footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    async function fetchConfig(){
+      try {
+        const res = await fetch('/api/config');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return await res.json();
+      } catch (e) {
+        console.error('fetchConfig', e);
+        return null;
+      }
+    }
+
+    function setStatus(elementId, text, timeout=3000){
+      const s = document.getElementById(elementId);
+      if (!s) return;
+      s.textContent = text;
+      if (timeout) setTimeout(()=>{ if (s.textContent === text) s.textContent = ''; }, timeout);
+    }
+
+    function toggleStaticFields(show){ document.getElementById('staticIpFields').style.display = show ? '' : 'none'; }
+    function toggleMdnsFields(show){ document.getElementById('mdnsFields').style.display = show ? '' : 'none'; }
+    function toggleNtpFields(show){ document.getElementById('ntpFields').style.display = show ? '' : 'none'; }
+
+    document.getElementById('useStaticIP').addEventListener('change', (e)=> toggleStaticFields(e.target.checked));
+    document.getElementById('mdnsEnabled').addEventListener('change', (e)=> toggleMdnsFields(e.target.checked));
+    document.getElementById('ntpEnabled').addEventListener('change', (e)=> toggleNtpFields(e.target.checked));
+
+    async function loadAll(){
+      const cfg = await fetchConfig();
+      if (!cfg) { setStatus('status','No se pudo obtener la configuración'); return; }
+
+      const version = cfg.version || '0.0';
+      document.getElementById('versionBadge').textContent = 'v' + version;
+      document.getElementById('uiVersion').textContent = '(fw v' + version + ')';
+
+      // Network
+      document.getElementById('modeSta').checked = !cfg.apMode;
+      document.getElementById('modeAp').checked = cfg.apMode;
+      document.getElementById('ssid').value = cfg.sta_ssid || '';
+      document.getElementById('password').value = cfg.sta_password || '';
+      document.getElementById('useStaticIP').checked = cfg.useStaticIP || false;
+      toggleStaticFields(cfg.useStaticIP || false);
+      document.getElementById('staticIP').value = cfg.staticIP || '';
+      document.getElementById('gateway').value = cfg.gateway || '';
+      document.getElementById('subnet').value = cfg.subnet || '';
+      document.getElementById('mdnsEnabled').checked = cfg.mdnsEnabled || false;
+      toggleMdnsFields(cfg.mdnsEnabled || false);
+      document.getElementById('mdnsName').value = cfg.mdnsName || '';
+
+      // NTP
+      document.getElementById('ntpEnabled').checked = cfg.ntpEnabled || false;
+      toggleNtpFields(cfg.ntpEnabled || false);
+      document.getElementById('ntpServer').value = cfg.ntpServer || 'pool.ntp.org';
+      document.getElementById('timezoneOffset').value = cfg.timezoneOffsetMinutes || 0;
+      setStatus('ntpStatus', cfg.timeSynced ? ('Hora: ' + (cfg.currentTime || '')) : 'Hora no sincronizada', 4000);
+
+      // Schedule
+      document.getElementById('scheduleEnabled').checked = cfg.schedule ? cfg.schedule.enabled : false;
+      document.getElementById('scheduleStart').value = (cfg.schedule && cfg.schedule.start) ? cfg.schedule.start : '08:00';
+      document.getElementById('scheduleEnd').value = (cfg.schedule && cfg.schedule.end) ? cfg.schedule.end : '18:00';
+      document.getElementById('relayPin').value = cfg.relayPin || '';
+
+      // LED
+      const led = cfg.led || {};
+      document.getElementById('ledPin').value = led.pin || 4;
+      document.getElementById('panelWidth').value = led.panelWidth || 8;
+      document.getElementById('panelHeight').value = led.panelHeight || 8;
+      document.getElementById('chainX').value = led.chainX || 1;
+      document.getElementById('chainY').value = led.chainY || 1;
+      document.getElementById('firstCorner').value = led.firstCorner || 'TL';
+      document.getElementById('ledSerpentine').checked = (led.serpentine === undefined) ? true : !!led.serpentine;
+      document.getElementById('relayPinRef').value = cfg.relayPin || '';
+
+      drawPanel({
+        panelWidth: led.panelWidth || 8,
+        panelHeight: led.panelHeight || 8,
+        chainX: led.chainX || 1,
+        chainY: led.chainY || 1,
+        serpentine: (led.serpentine === undefined) ? true : !!led.serpentine,
+        firstCorner: led.firstCorner || 'TL'
+      });
+
+      setStatus('status','Configuración cargada', 1500);
+      loadGifList();
+    }
+
+    async function saveFromForm(){
+      const payload = {
+        apMode: document.getElementById('modeAp').checked,
+        sta_ssid: document.getElementById('ssid').value || '',
+        sta_password: document.getElementById('password').value || '',
+        useStaticIP: document.getElementById('useStaticIP').checked,
+        staticIP: document.getElementById('staticIP').value || '',
+        gateway: document.getElementById('gateway').value || '',
+        subnet: document.getElementById('subnet').value || '',
+        mdnsEnabled: document.getElementById('mdnsEnabled').checked,
+        mdnsName: document.getElementById('mdnsName').value || '',
+        ntpEnabled: document.getElementById('ntpEnabled').checked,
+        ntpServer: document.getElementById('ntpServer').value || 'pool.ntp.org',
+        timezoneOffsetMinutes: parseInt(document.getElementById('timezoneOffset').value || '0'),
+        schedule: {
+          enabled: document.getElementById('scheduleEnabled').checked,
+          start: document.getElementById('scheduleStart').value,
+          end: document.getElementById('scheduleEnd').value
+        },
+        relayPin: parseInt(document.getElementById('relayPin').value || '2'),
+        led: {
+          pin: parseInt(document.getElementById('ledPin').value || '4'),
+          panelWidth: parseInt(document.getElementById('panelWidth').value || '8'),
+          panelHeight: parseInt(document.getElementById('panelHeight').value || '8'),
+          chainX: parseInt(document.getElementById('chainX').value || '1'),
+          chainY: parseInt(document.getElementById('chainY').value || '1'),
+          firstCorner: document.getElementById('firstCorner').value || 'TL',
+          serpentine: !!document.getElementById('ledSerpentine').checked
+        }
+      };
+
+      try {
+        const res = await fetch('/api/config', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        if (data.result === 'ok'){
+          setStatus('status','Guardado y aplicado');
+          setTimeout(loadAll, 1200);
+        } else {
+          setStatus('status','Respuesta inesperada', 4000);
+        }
+      } catch (e) {
+        console.error('saveFromForm', e);
+        setStatus('status','Error guardando la configuración: ' + e.message, 5000);
+      }
+    }
+
+    async function saveSchedule(){
+      await saveFromForm();
+      setStatus('scheduleStatus','Horario guardado',1500);
+    }
+
+    async function saveLedForm(){
+      await saveFromForm();
+      setStatus('ledStatus','Guardado',1500);
+    }
+
+    // GIF UI functions
+    async function uploadGif(){
+      const input = document.getElementById('gifFile');
+      if (!input.files || input.files.length === 0){ setStatus('ledStatus','Selecciona un GIF'); return; }
+      const file = input.files[0];
+      const form = new FormData();
+      // field name must be "file" (server uses server.upload())
+      form.append('file', file, file.name);
+      try {
+        const res = await fetch('/api/gifs/upload', { method: 'POST', body: form });
+        if (!res.ok) throw new Error('Upload failed');
+        setStatus('ledStatus','Subido');
+        loadGifList();
+      } catch (e){
+        console.error(e);
+        setStatus('ledStatus','Error subiendo: ' + e.message, 5000);
+      }
+    }
+
+    async function loadGifList(){
+      try {
+        const res = await fetch('/api/gifs');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        const list = data.gifs || [];
+        const container = document.getElementById('gifsList');
+        container.innerHTML = '';
+        list.forEach(name => {
+          const col = document.createElement('div'); col.className='col-12 col-md-6';
+          const card = document.createElement('div'); card.className='p-2 border rounded d-flex align-items-center gap-3';
+          const thumb = document.createElement('img'); thumb.className='gif-thumb'; thumb.src = '/gifs/' + name;
+          const info = document.createElement('div'); info.innerHTML = `<div><strong>${name}</strong></div>`;
+          const btnPlay = document.createElement('button'); btnPlay.className='btn btn-sm btn-success me-1'; btnPlay.textContent='Play';
+          btnPlay.onclick = ()=> playGif(name);
+          const btnPreview = document.createElement('button'); btnPreview.className='btn btn-sm btn-outline-secondary'; btnPreview.textContent='Preview';
+          btnPreview.onclick = ()=> { document.getElementById('previewImg').src = '/gifs/' + name; document.getElementById('previewInfo').textContent = name; };
+          const btnDelete = document.createElement('button'); btnDelete.className='btn btn-sm btn-danger'; btnDelete.textContent='Delete';
+          btnDelete.onclick = ()=> deleteGif(name);
+          const btns = document.createElement('div'); btns.appendChild(btnPlay); btns.appendChild(btnPreview); btns.appendChild(btnDelete);
+          card.appendChild(thumb); card.appendChild(info); card.appendChild(btns);
+          col.appendChild(card);
+          container.appendChild(col);
+        });
+      } catch(e){
+        console.error(e);
+      }
+    }
+
+    async function deleteGif(name){
+      if(!confirm('Borrar ' + name + '?')) return;
+      try {
+        const res = await fetch('/gifs/' + name, { method: 'DELETE' });
+        if (!res.ok) throw new Error('Delete failed');
+        loadGifList();
+      } catch(e){
+        console.error(e);
+      }
+    }
+
+    async function playGif(name){
+      try {
+        const res = await fetch('/api/gifs/play', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ name: name, loop: true })
+        });
+        if (!res.ok) throw new Error('Play failed');
+        setStatus('ledStatus','Reproduciendo ' + name);
+      } catch(e){
+        console.error(e);
+        setStatus('ledStatus','Error play: ' + e.message, 5000);
+      }
+    }
+
+    async function stopGif(){
+      try {
+        const res = await fetch('/api/gifs/stop', { method: 'POST' });
+        if (!res.ok) throw new Error('Stop failed');
+        setStatus('ledStatus','Detenido');
+      } catch(e){
+        console.error(e);
+      }
+    }
+
+    // Panel drawing (preview)
+    function drawPanel(cfg){
+      const canvas = document.getElementById('panelCanvas');
+      const ctx = canvas.getContext('2d');
+      const zoom = parseInt(document.getElementById('zoom').value || 14);
+      const panelW = cfg.panelWidth;
+      const panelH = cfg.panelHeight;
+      const chainX = cfg.chainX;
+      const chainY = cfg.chainY;
+      const serp = cfg.serpentine;
+      const firstCorner = cfg.firstCorner;
+
+      const totalW = panelW * chainX;
+      const totalH = panelH * chainY;
+
+      const margin = 20;
+      canvas.width = Math.max(200, totalW * zoom + margin*2);
+      canvas.height = Math.max(120, totalH * zoom + margin*2);
+
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = "#0b1220";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+
+      function panelToCanvas(px, py, panelCol, panelRow){
+        let gx = panelCol * panelW + px;
+        let gy = panelRow * panelH + py;
+        return {x: margin + gx*zoom, y: margin + gy*zoom};
+      }
+
+      let index = 0;
+      for (let panelRow = 0; panelRow < chainY; panelRow++){
+        for (let panelCol = 0; panelCol < chainX; panelCol++){
+          const topToBottom = (firstCorner === "TL" || firstCorner === "TR");
+          const leftToRight = (firstCorner === "TL" || firstCorner === "BL");
+          for (let y = 0; y < panelH; y++){
+            const py = topToBottom ? y : (panelH - 1 - y);
+            let colOrder = [];
+            for (let x = 0; x < panelW; x++) colOrder.push(x);
+            if (serp && (y % 2 === 1)) colOrder.reverse();
+            if (!leftToRight) colOrder = colOrder.map(x => panelW - 1 - x);
+            for (let xi = 0; xi < colOrder.length; xi++){
+              const px = colOrder[xi];
+              const pos = panelToCanvas(px, py, panelCol, panelRow);
+              ctx.fillStyle = '#222';
+              ctx.fillRect(pos.x+1, pos.y+1, zoom-2, zoom-2);
+              ctx.fillStyle = '#0f9';
+              ctx.font = Math.max(8, Math.floor(zoom/2)) + "px monospace";
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'middle';
+              ctx.fillText(index.toString(), pos.x + zoom/2, pos.y + zoom/2);
+              index++;
+            }
+          }
+        }
+      }
+
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(margin-2, margin-2, totalW*zoom+4, totalH*zoom+4);
+
+      let arrowX = margin, arrowY = margin;
+      if (firstCorner === "TL") { arrowX = margin + 5; arrowY = margin + 5; }
+      if (firstCorner === "TR") { arrowX = margin + totalW*zoom - 5; arrowY = margin + 5; }
+      if (firstCorner === "BL") { arrowX = margin + 5; arrowY = margin + totalH*zoom - 5; }
+      if (firstCorner === "BR") { arrowX = margin + totalW*zoom - 5; arrowY = margin + totalH*zoom - 5; }
+      ctx.fillStyle = '#ff0';
+      ctx.beginPath();
+      ctx.arc(arrowX, arrowY, 6, 0, Math.PI*2);
+      ctx.fill();
+
+      document.getElementById('sizeInfo').textContent = `Tamaño total: ${totalW}×${totalH} LEDs (${totalW*totalH} LEDs)`;
+    }
+
+    // Event bindings
+    document.getElementById('saveBtn').addEventListener('click', saveFromForm);
+    document.getElementById('reloadBtn').addEventListener('click', loadAll);
+    document.getElementById('saveScheduleBtn').addEventListener('click', saveSchedule);
+    document.getElementById('reloadScheduleBtn').addEventListener('click', loadAll);
+    document.getElementById('saveLedBtn').addEventListener('click', saveLedForm);
+    document.getElementById('reloadLedBtn').addEventListener('click', loadAll);
+    document.getElementById('uploadBtn').addEventListener('click', uploadGif);
+    document.getElementById('refreshGifsBtn').addEventListener('click', loadGifList);
+    document.getElementById('stopGifBtn').addEventListener('click', stopGif);
+    document.getElementById('zoom').addEventListener('input', ()=> {
+      const ledCfg = {
+        panelWidth: parseInt(document.getElementById('panelWidth').value || '8'),
+        panelHeight: parseInt(document.getElementById('panelHeight').value || '8'),
+        chainX: parseInt(document.getElementById('chainX').value || '1'),
+        chainY: parseInt(document.getElementById('chainY').value || '1'),
+        serpentine: !!document.getElementById('ledSerpentine').checked,
+        firstCorner: document.getElementById('firstCorner').value || 'TL'
+      };
+      drawPanel(ledCfg);
+    });
+
+    window.addEventListener('load', loadAll);
+  </script>
+</body>
+</html>
