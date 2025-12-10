@@ -1,0 +1,17 @@
+[Unit]
+Description=Panel Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStartPre=-/bin/sleep 4
+WorkingDirectory=/home/pi/panel
+Restart=always
+RestartSec=10
+ExecStart=/home/pi/venv/bin/python3 /home/pi/panel/LedMatrixAnimation.py
+StandardOutput=inherit
+StandardError=inherit
+User=owner
+
+[Install]
+WantedBy=multi-user.target

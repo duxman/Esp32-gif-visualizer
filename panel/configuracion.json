@@ -1,0 +1,13 @@
+{
+    "directorio": "/home/pi/ficheros",
+    "repeticiones": 1,
+    "repeticiones_gif": 3,
+    "ancho": 24,
+    "alto": 18,
+    "panel_hor": 2,
+    "panel_ver": 1,
+    "primer_led": "LEFT",
+    "posicion_vertical": "BOTTOM",
+    "velocidad": 0.25,
+    "DEBUG": 0
+}
