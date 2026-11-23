@@ -8,3 +8,10 @@
 .agentes
 tools
 .vscode
+__pycache__/
+*.py[cod]
+*.log
+*.log.*
+.idea/
+desktop.ini
+Thumbs.db
