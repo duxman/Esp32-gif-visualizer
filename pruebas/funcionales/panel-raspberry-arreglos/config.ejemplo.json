@@ -1,0 +1,7 @@
+{
+  "base": "f25ee46",
+  "pio": "pio",
+  "esp32_ram": 48728,
+  "esp32_flash": 890553,
+  "entorno": "Windows, sin hardware"
+}

@@ -1,0 +1,715 @@
+{
+  "meta": {
+    "suite": "Panel Raspberry Pi: reorganización y arreglos",
+    "plan": "doc/pruebas/2026-11-23-panel-raspberry-arreglos/plan.md",
+    "fecha": "2026-11-23T13:56:46",
+    "entorno": "",
+    "version": "f66f0f4",
+    "ejecutado_por": "duxma",
+    "interactivo": false,
+    "veredicto": "apto",
+    "hasta_fase": "F1",
+    "nivel": "fase",
+    "avisos": []
+  },
+  "resultados": [
+    {
+      "id": "PF-01",
+      "caso": "Estructura nueva sin restos",
+      "requisitos": [
+        "RF-1"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "pasa",
+      "motivo": "",
+      "pasos": [
+        "✔ rastreado raspberry-panel/panel/Animation.py",
+        "✔ rastreado raspberry-panel/panel/AnimationServer.py",
+        "✔ rastreado raspberry-panel/panel/Config.py",
+        "✔ rastreado raspberry-panel/panel/LedMatrixAnimation.py",
+        "✔ rastreado raspberry-panel/panel/Panel.py",
+        "✔ rastreado raspberry-panel/panel/configuracion.json",
+        "✔ rastreado raspberry-panel/panel/panel.service",
+        "✔ rastreado raspberry-panel/panel/apagado.sh",
+        "✔ banner1.png a banner12.png en raspberry-panel/ficheros/",
+        "✔ nada rastreado bajo panel/ ni ficheros/ de la raíz",
+        "✔ no existe panel/ en la raíz del disco",
+        "✔ no existe ficheros/ en la raíz del disco",
+        "✔ el log no está rastreado en raspberry-panel/panel/",
+        "✔ el log está rastreado en archivo/raspberry-panel/",
+        "✔ git ls-files '*.pyc' no devuelve ninguno"
+      ],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.02,
+      "fase": "F1",
+      "cuando": "siempre"
+    },
+    {
+      "id": "PF-02",
+      "caso": "El .gitignore con rutas difíciles",
+      "requisitos": [
+        "RF-1"
+      ],
+      "tipo": "automática",
+      "clase": "hostil",
+      "estado": "pasa",
+      "motivo": "",
+      "pasos": [
+        "✔ se ignora «raspberry-panel/panel/__pycache__/Panel.cpython-313.pyc»",
+        "✔ se ignora «archivo/navidad/ficheros navidad/panel/__pycache__/Config.cpython-37.pyc»",
+        "✔ se ignora «archivo/navidad/ñandú ç/__pycache__/a.cpython-37.pyc»",
+        "✔ se ignora «x/modulo.pyo»",
+        "✔ se ignora «x/modulo.pyd»",
+        "✔ se ignora «raspberry-panel/panel/animation_panel.log»",
+        "✔ se ignora «raspberry-panel/panel/animation_panel.log.1»",
+        "✔ se ignora «.idea/a»",
+        "✔ se ignora «desktop.ini»",
+        "✔ se ignora «Thumbs.db»",
+        "✔ NO se ignora «archivo/navidad/ficheros navidad/imagen.pdn»",
+        "✔ NO se ignora «raspberry-panel/ficheros/banner1.png»",
+        "✔ NO se ignora «raspberry-panel/panel/Panel.py»",
+        "✔ el .gitignore conserva las líneas de la línea base"
+      ],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.29,
+      "fase": "F1",
+      "cuando": "siempre"
+    },
+    {
+      "id": "PF-03",
+      "caso": "Cada eliminado tiene un par idéntico",
+      "requisitos": [
+        "RF-2"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "pasa",
+      "motivo": "",
+      "pasos": [
+        "✔ archivos eliminados (sin .pyc) (esperado 133)",
+        "✔ los 133 eliminados tienen un par con el mismo sha256"
+      ],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.13,
+      "fase": "F1",
+      "cuando": "siempre"
+    },
+    {
+      "id": "PF-04",
+      "caso": "Cada archivo único está archivado",
+      "requisitos": [
+        "RF-3"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "pasa",
+      "motivo": "",
+      "pasos": [
+        "✔ archivos archivados (esperado 104)",
+        "✔ mismo sha256 que en la línea base"
+      ],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.06,
+      "fase": "F1",
+      "cuando": "siempre"
+    },
+    {
+      "id": "PF-05",
+      "caso": "Partición exacta, con nombres difíciles",
+      "requisitos": [
+        "RF-2",
+        "RF-3"
+      ],
+      "tipo": "automática",
+      "clase": "límite",
+      "estado": "pasa",
+      "motivo": "",
+      "pasos": [
+        "✔ archivos de la línea base en ficheros/, navidad/ y panel/ (esperado 301)",
+        "✔ recuento por grupo (esperado {'eliminados': 133, 'archivados': 104, 'conservados': 52, 'pyc': 12})",
+        "✔ 133 + 104 + 52 + 12 = 301",
+        "✔ el conjunto incluye nombres con espacios",
+        "✔ el conjunto incluye nombres con caracteres no ASCII"
+      ],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.06,
+      "fase": "F1",
+      "cuando": "siempre"
+    },
+    {
+      "id": "PF-06",
+      "caso": "La comprobación de pares no es vacía",
+      "requisitos": [
+        "RF-2",
+        "RF-3"
+      ],
+      "tipo": "automática",
+      "clase": "inválida",
+      "estado": "pasa",
+      "motivo": "",
+      "pasos": [
+        "✔ punto de partida correcto",
+        "✔ un archivado con otro contenido se detecta como distinto",
+        "✔ un destino quitado cambia el recuento y lo hace fallar",
+        "✔ un eliminado sin su par se detecta"
+      ],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.35,
+      "fase": "F1",
+      "cuando": "siempre"
+    },
+    {
+      "id": "PF-07",
+      "caso": "Compila e importa",
+      "requisitos": [
+        "RF-4"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "pasa",
+      "motivo": "",
+      "pasos": [
+        "✔ los 5 .py están en raspberry-panel/panel (esperado ['Animation.py', 'AnimationServer.py', 'Config.py', 'LedMatrixAnimation.py', 'Panel.py'])",
+        "ejecuto: C:\\Users\\duxma\\AppData\\Local\\Python\\pythoncore-3.15-64\\python.exe -B -c import sys\nfor f in sys.argv[1:]:\n    compile(open(f, encoding='utf-8').read(), f, 'exec')\n F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Animation.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\AnimationServer.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Config.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\LedMatrixAnimation.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Panel.py",
+        "✔ los 5 .py compilan",
+        "ejecuto: C:\\Users\\duxma\\AppData\\Local\\Python\\pythoncore-3.15-64\\python.exe -B -c import Config, Panel",
+        "✔ import Config, Panel funciona desde la carpeta del código"
+      ],
+      "evidencias": [
+        "$ C:\\Users\\duxma\\AppData\\Local\\Python\\pythoncore-3.15-64\\python.exe -B -c import sys\nfor f in sys.argv[1:]:\n    compile(open(f, encoding='utf-8').read(), f, 'exec')\n F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Animation.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\AnimationServer.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Config.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\LedMatrixAnimation.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Panel.py\n(código 0)\n",
+        "$ C:\\Users\\duxma\\AppData\\Local\\Python\\pythoncore-3.15-64\\python.exe -B -c import Config, Panel\n(código 0)\n"
+      ],
+      "observaciones": [],
+      "duracion_s": 0.15,
+      "fase": "F1",
+      "cuando": "siempre"
+    },
+    {
+      "id": "PF-08",
+      "caso": "El firmware compila igual",
+      "requisitos": [
+        "RF-4"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "aplazado",
+      "motivo": "se ejecuta en la entrega (nivel fase)",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F1",
+      "cuando": "en entrega"
+    },
+    {
+      "id": "PF-09",
+      "caso": "Contenido intacto de firmware y banners",
+      "requisitos": [
+        "RF-4"
+      ],
+      "tipo": "automática",
+      "clase": "robustez",
+      "estado": "pasa",
+      "motivo": "",
+      "pasos": [
+        "✔ los 12 banners están en la línea base",
+        "✔ todos están en su sitio nuevo",
+        "✔ 17 archivos con el mismo sha256 que en la línea base"
+      ],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.07,
+      "fase": "F1",
+      "cuando": "siempre"
+    },
+    {
+      "id": "PF-10",
+      "caso": "Disco intacto y sin efectos",
+      "requisitos": [
+        "RF-4"
+      ],
+      "tipo": "automática",
+      "clase": "inválida",
+      "estado": "pasa",
+      "motivo": "",
+      "pasos": [
+        "✔ git status de las rutas del producto vacío (ni modificados ni sin rastrear)",
+        "✔ los 12 .pyc siguen en el disco, sin borrar, en su destino",
+        "✔ los 5 .py están en raspberry-panel/panel (esperado ['Animation.py', 'AnimationServer.py', 'Config.py', 'LedMatrixAnimation.py', 'Panel.py'])",
+        "ejecuto: C:\\Users\\duxma\\AppData\\Local\\Python\\pythoncore-3.15-64\\python.exe -B -c import sys\nfor f in sys.argv[1:]:\n    compile(open(f, encoding='utf-8').read(), f, 'exec')\n F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Animation.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\AnimationServer.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Config.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\LedMatrixAnimation.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Panel.py",
+        "✔ los 5 .py compilan",
+        "ejecuto: C:\\Users\\duxma\\AppData\\Local\\Python\\pythoncore-3.15-64\\python.exe -B -c import Config, Panel",
+        "✔ import Config, Panel funciona desde la carpeta del código",
+        "✔ compilar e importar no deja archivos nuevos (ni ignorados) en el repositorio (esperado '!! archivo/navidad/ficheros navidad/panel/.idea/inspectionProfiles/\\x00!! archivo/navidad/ficheros navidad/panel/.idea/workspace.xml\\x00!! archivo/navidad/ficheros navidad/panel/__pycache__/\\x00!! archivo/navidad/panel/.idea/workspace.xml\\x00!! archivo/navidad/panel/__pycache__/\\x00!! esp32/.pio/\\x00!! raspberry-panel/panel/__pycache__/\\x00')"
+      ],
+      "evidencias": [
+        "$ C:\\Users\\duxma\\AppData\\Local\\Python\\pythoncore-3.15-64\\python.exe -B -c import sys\nfor f in sys.argv[1:]:\n    compile(open(f, encoding='utf-8').read(), f, 'exec')\n F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Animation.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\AnimationServer.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Config.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\LedMatrixAnimation.py F:\\desarrollo\\Esp32-gif-visualizer\\raspberry-panel\\panel\\Panel.py\n(código 0)\n",
+        "$ C:\\Users\\duxma\\AppData\\Local\\Python\\pythoncore-3.15-64\\python.exe -B -c import Config, Panel\n(código 0)\n"
+      ],
+      "observaciones": [],
+      "duracion_s": 0.24,
+      "fase": "F1",
+      "cuando": "siempre"
+    },
+    {
+      "id": "PF-37",
+      "caso": "Cada commit de movimiento solo hace lo autorizado",
+      "requisitos": [
+        "RF-4",
+        "RF-2"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "pasa",
+      "motivo": "",
+      "pasos": [
+        "✔ T-03 solo modifica .gitignore (esperado [('M', '.gitignore')])",
+        "✔ T-03 solo saca del índice los 12 .pyc de la lista (esperado ['navidad/ficheros navidad/panel/__pycache__/Animation.cpython-37.pyc', 'navidad/ficheros navidad/panel/__pycache__/AnimationServer.cpython-37.pyc', 'navidad/ficheros navidad/panel/__pycache__/Config.cpython-37.pyc', 'navidad/ficheros navidad/panel/__pycache__/Panel.cpython-37.pyc', 'navidad/panel/__pycache__/Animation.cpython-37.pyc', 'navidad/panel/__pycache__/AnimationServer.cpython-37.pyc', 'navidad/panel/__pycache__/Config.cpython-37.pyc', 'navidad/panel/__pycache__/Panel.cpython-37.pyc', 'panel/__pycache__/Animation.cpython-313.pyc', 'panel/__pycache__/AnimationServer.cpython-313.pyc', 'panel/__pycache__/Config.cpython-313.pyc', 'panel/__pycache__/Panel.cpython-313.pyc'])",
+        "✔ T-03 no hace nada más",
+        "✔ T-04 solo elimina",
+        "✔ T-04 elimina exactamente la lista autorizada (133) (esperado ['ficheros/iconos/banners/old/banner10.png', 'ficheros/iconos/banners/old/banner2.png', 'ficheros/iconos/banners/old/banner3.png', 'ficheros/iconos/banners/old/banner4.png', 'ficheros/iconos/banners/old/banner5.png', 'ficheros/iconos/banners/old/banner6.png', 'navidad/1/2 (20).png', 'navidad/banner1.png', 'navidad/ficheros - copia/banner1.png', 'navidad/ficheros - copia/banner10.png', 'navidad/ficheros - copia/banner2.png', 'navidad/ficheros - copia/banner3.png', 'navidad/ficheros - copia/banner4.png', 'navidad/ficheros - copia/banner5.png', 'navidad/ficheros - copia/banner6.png', 'navidad/ficheros - copia/banner7.png', 'navidad/ficheros - copia/banner8.png', 'navidad/ficheros - copia/banner9.png', 'navidad/ficheros navidad/banner1.png', 'navidad/ficheros navidad/banner10.png', 'navidad/ficheros navidad/banner2.png', 'navidad/ficheros navidad/banner3.png', 'navidad/ficheros navidad/banner4.png', 'navidad/ficheros navidad/banner5.png', 'navidad/ficheros navidad/banner6.png', 'navidad/ficheros navidad/banner7.png', 'navidad/ficheros navidad/banner8.png', 'navidad/ficheros navidad/banner9.png', 'navidad/ficheros navidad/panel/.idea/inspectionProfiles/profiles_settings.xml', 'navidad/ficheros navidad/panel/.idea/modules.xml', 'navidad/ficheros navidad/panel/Animation.py', 'navidad/ficheros navidad/panel/AnimationServer.py', 'navidad/ficheros navidad/panel/Config.py', 'navidad/ficheros navidad/panel/LedMatrixAnimation.py', 'navidad/ficheros navidad/panel/Panel.py', 'navidad/ficheros navidad/panel/configuracion.json', 'navidad/ficheros navidad/panel/panel.service', 'navidad/ficheros/banner1.png', 'navidad/ficheros/banner10.png', 'navidad/ficheros/banner11.png', 'navidad/ficheros/banner12.png', 'navidad/ficheros/banner2.png', 'navidad/ficheros/banner3.png', 'navidad/ficheros/banner4.png', 'navidad/ficheros/banner5.png', 'navidad/ficheros/banner6.png', 'navidad/ficheros/banner7.png', 'navidad/ficheros/banner8.png', 'navidad/ficheros/banner9.png', 'navidad/ficheros/iconos/10_18px.png', 'navidad/ficheros/iconos/11_18px.png', 'navidad/ficheros/iconos/12_18px.png', 'navidad/ficheros/iconos/13_18px.png', 'navidad/ficheros/iconos/14_18px.png', 'navidad/ficheros/iconos/15_18px.png', 'navidad/ficheros/iconos/16_18px.png', 'navidad/ficheros/iconos/17_18px.png', 'navidad/ficheros/iconos/18_18px.png', 'navidad/ficheros/iconos/19_18px.png', 'navidad/ficheros/iconos/1_18px.png', 'navidad/ficheros/iconos/20_18px.png', 'navidad/ficheros/iconos/21_18px.png', 'navidad/ficheros/iconos/22_18px.png', 'navidad/ficheros/iconos/23_18px.png', 'navidad/ficheros/iconos/24_18px.png', 'navidad/ficheros/iconos/25_18px.png', 'navidad/ficheros/iconos/26_18px.png', 'navidad/ficheros/iconos/27_18px.png', 'navidad/ficheros/iconos/28_18px.png', 'navidad/ficheros/iconos/2_18px.png', 'navidad/ficheros/iconos/3_18px.png', 'navidad/ficheros/iconos/4_18px.png', 'navidad/ficheros/iconos/5_18px.png', 'navidad/ficheros/iconos/6_18px.png', 'navidad/ficheros/iconos/7_18px.png', 'navidad/ficheros/iconos/8_18px.png', 'navidad/ficheros/iconos/9_18px.png', 'navidad/ficheros/iconos/banners/banner1.png', 'navidad/ficheros/iconos/banners/example1.gif', 'navidad/ficheros/iconos/banners/example2.gif', 'navidad/ficheros/iconos/banners/old/banner1.png', 'navidad/ficheros/iconos/banners/old/banner10.png', 'navidad/ficheros/iconos/banners/old/banner2.png', 'navidad/ficheros/iconos/banners/old/banner3.png', 'navidad/ficheros/iconos/banners/old/banner4.png', 'navidad/ficheros/iconos/banners/old/banner5.png', 'navidad/ficheros/iconos/banners/old/banner6.png', 'navidad/ficheros/iconos/banners/old/banner7.png', 'navidad/ficheros/iconos/banners/old/banner8.png', 'navidad/ficheros/iconos/banners/old/banner9.png', 'navidad/ficheros/iconos/todos_capas.pdn', 'navidad/iconos/10_18px.png', 'navidad/iconos/11_18px.png', 'navidad/iconos/12_18px.png', 'navidad/iconos/13_18px.png', 'navidad/iconos/14_18px.png', 'navidad/iconos/15_18px.png', 'navidad/iconos/16_18px.png', 'navidad/iconos/17_18px.png', 'navidad/iconos/18_18px.png', 'navidad/iconos/19_18px.png', 'navidad/iconos/1_18px.png', 'navidad/iconos/20_18px.png', 'navidad/iconos/21_18px.png', 'navidad/iconos/22_18px.png', 'navidad/iconos/23_18px.png', 'navidad/iconos/24_18px.png', 'navidad/iconos/25_18px.png', 'navidad/iconos/26_18px.png', 'navidad/iconos/27_18px.png', 'navidad/iconos/28_18px.png', 'navidad/iconos/2_18px.png', 'navidad/iconos/3_18px.png', 'navidad/iconos/4_18px.png', 'navidad/iconos/5_18px.png', 'navidad/iconos/6_18px.png', 'navidad/iconos/7_18px.png', 'navidad/iconos/8_18px.png', 'navidad/iconos/9_18px.png', 'navidad/iconos/banners/banner1.png', 'navidad/iconos/banners/example1.gif', 'navidad/iconos/banners/example2.gif', 'navidad/iconos/banners/old/banner1.png', 'navidad/iconos/banners/old/banner10.png', 'navidad/iconos/banners/old/banner11.png', 'navidad/iconos/banners/old/banner12.png', 'navidad/iconos/banners/old/banner2.png', 'navidad/iconos/banners/old/banner3.png', 'navidad/iconos/banners/old/banner4.png', 'navidad/iconos/banners/old/banner5.png', 'navidad/iconos/banners/old/banner6.png', 'navidad/iconos/banners/old/banner8.png', 'navidad/iconos/banners/old/banner9.png'])",
+        "✔ T-05 solo tiene renombrados al 100 %",
+        "✔ T-06 solo tiene renombrados al 100 %",
+        "✔ T-07 solo tiene renombrados al 100 %"
+      ],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.27,
+      "fase": "F1",
+      "cuando": "siempre"
+    },
+    {
+      "id": "PF-11",
+      "caso": "`pytest raspberry-panel/tests` pasa entero sin librerías de hardware (C-1 a C-4, huellas de las 12 pancartas, modo DEBUG)",
+      "requisitos": [
+        "RF-5",
+        "RF-17"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F2, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F2"
+    },
+    {
+      "id": "PF-12",
+      "caso": "Las pruebas de caracterización siguen congeladas: `git log` de `test_caracterizacion_*.py` y `conftest.py` solo muestra el commit de F2 y `git status` sobre ellas sale vacío",
+      "requisitos": [
+        "RF-5",
+        "RF-17"
+      ],
+      "tipo": "automática",
+      "clase": "robustez",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F3, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F3"
+    },
+    {
+      "id": "PF-13",
+      "caso": "Crear un `Panel` con `LOGGING_CONFIG` deja la línea INFO «Total LEDs in panel: 864» del logger `Panel` en el log",
+      "requisitos": [
+        "RF-6"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F3, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F3"
+    },
+    {
+      "id": "PF-14",
+      "caso": "Un único gestor de archivo sobre `animation_panel.log`, 26 214 400 B y 5 copias; la excepción de rotación figura con fecha en el análisis (RN-7) y en la memoria de decisiones",
+      "requisitos": [
+        "RF-13"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F3, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F3"
+    },
+    {
+      "id": "PF-15",
+      "caso": "Sin `configuracion.json`, y con una tira simulada que lanza al pintar: ERROR con traza en el log, código de salida 1 y error por stderr; `KeyboardInterrupt` y `SystemExit` no dejan esa línea",
+      "requisitos": [
+        "RF-19"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F3, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F3"
+    },
+    {
+      "id": "PF-16",
+      "caso": "`configuracion.json` mal formado, vacío, con una clave obligatoria ausente o con `panel_hor` o `panel_ver` = 0: ERROR con la traza de la excepción en el log, código 1, error por stderr y sin colgarse (30 s)",
+      "requisitos": [
+        "RF-19"
+      ],
+      "tipo": "automática",
+      "clase": "inválida",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F3, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F3"
+    },
+    {
+      "id": "PF-17",
+      "caso": "Valores del catálogo en `velocidad`, `ancho`, `directorio` y `repeticiones` (NaN, negativos, `1,5`, enormes, `../`, 100 000 caracteres, NUL): valor absurdo: si el proceso cae, ERROR con la traza en el log y código 1 (RF-19); en todo caso, sin colgarse (30 s). No se exige nombrar la clave",
+      "requisitos": [
+        "RF-19"
+      ],
+      "tipo": "automática",
+      "clase": "hostil",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F3, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F3"
+    },
+    {
+      "id": "PF-18",
+      "caso": "GIF de 1 frame de 48×18, 30×10, 1×1 y 48×17: 1 frame arriba a la izquierda, `repeticiones` veces, 250 ms; el animado sigue con `repeticiones_gif`",
+      "requisitos": [
+        "RF-7"
+      ],
+      "tipo": "automática",
+      "clase": "límite",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F4, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F4"
+    },
+    {
+      "id": "PF-19",
+      "caso": "GIF de 100×100, 100×40, 100×37, 49×18, 48×19, 48×18, 100×1, animados y no animados: 18×18, 45×18, 48×18, mínimo 1 px; ningún píxel fuera del panel",
+      "requisitos": [
+        "RF-8"
+      ],
+      "tipo": "automática",
+      "clase": "límite",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F4, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F4"
+    },
+    {
+      "id": "PF-20",
+      "caso": "Un `.png` corrupto y un `.gif` truncado entre dos válidos: ERROR con ruta y causa, los válidos se reproducen y el bucle sigue",
+      "requisitos": [
+        "RF-9"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F4, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F4"
+    },
+    {
+      "id": "PF-21",
+      "caso": "PNG y GIF de 0 bytes, con cabecera válida y cuerpo cortado, y GIF que falla a mitad: se omiten enteros (sin frames parciales) con su causa en el log",
+      "requisitos": [
+        "RF-9"
+      ],
+      "tipo": "automática",
+      "clase": "inválida",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F4, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F4"
+    },
+    {
+      "id": "PF-22",
+      "caso": "Directorio vacío, con un solo archivo roto y con todos rotos: 1 ERROR por vuelta que nombra el directorio y espera de 10 s simulada",
+      "requisitos": [
+        "RF-9"
+      ],
+      "tipo": "automática",
+      "clase": "límite",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F4, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F4"
+    },
+    {
+      "id": "PF-23",
+      "caso": "PNG de paleta 408×18 da 73 frames RGB sin excepción; PNG RGBA con píxel rojo transparente deja ese LED apagado; GIF de 1 frame de paleta y GIF animado con transparencia compuestos sobre negro; PF-11 sigue en verde",
+      "requisitos": [
+        "RF-10",
+        "RF-17"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F4, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F4"
+    },
+    {
+      "id": "PF-24",
+      "caso": "PNG de 1 px, 48, 49 y 408 px de ancho y de modos `1`, `L`, `LA`, `P`, `RGB`, `RGBA`: frames según RN-1 y duración 250 ms",
+      "requisitos": [
+        "RF-10",
+        "RF-17"
+      ],
+      "tipo": "automática",
+      "clase": "límite",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F4, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F4"
+    },
+    {
+      "id": "PF-25",
+      "caso": "Archivos del catálogo (BOM, Latin-1, UTF-16, binario, NUL, línea de 1 MB) con extensión `.png` o `.gif`, PNG de 1×1 y de miles de píxeles, nombres con espacios, acentos y mayúsculas: se omiten o se reproducen sin traza ni cuelgue",
+      "requisitos": [
+        "RF-9",
+        "RF-10"
+      ],
+      "tipo": "automática",
+      "clase": "hostil",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F4, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F4"
+    },
+    {
+      "id": "PF-26",
+      "caso": "Paneles 1×1, 2×1 y 3×2 (6 paneles): sin `IndexError`, cada panel 2 s con el color de RN-6 (el 4 repite rojo, el 5 verde) y el log da los LED de los 6 (el 0 va en PF-16)",
+      "requisitos": [
+        "RF-11"
+      ],
+      "tipo": "automática",
+      "clase": "límite",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F4, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F4"
+    },
+    {
+      "id": "PF-27",
+      "caso": "Tres vueltas con un archivo roto: misma causa cada vuelta, el resto se reproduce igual cada vez, sin crecer ni caer; `KeyboardInterrupt` a mitad y nueva ejecución correcta",
+      "requisitos": [
+        "RF-9",
+        "RF-17"
+      ],
+      "tipo": "automática",
+      "clase": "robustez",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F4, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F4"
+    },
+    {
+      "id": "PF-28",
+      "caso": "El código copiado a una carpeta que no es `/home/pi/panel` lee su propio `configuracion.json`; `panel.service` dice `User=pi`; `directorio` sigue siendo `/home/pi/ficheros`",
+      "requisitos": [
+        "RF-12"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F5, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F5"
+    },
+    {
+      "id": "PF-29",
+      "caso": "Carpeta de copia con espacios y acentos, y ejecución lanzada desde otro directorio de trabajo: lee la `configuracion.json` de la carpeta del código, no la del directorio actual",
+      "requisitos": [
+        "RF-12"
+      ],
+      "tipo": "automática",
+      "clase": "hostil",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F5, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F5"
+    },
+    {
+      "id": "PF-30",
+      "caso": "Carpeta del código sin `configuracion.json`: error que nombra la ruta buscada, registrado en el log, código 1",
+      "requisitos": [
+        "RF-12",
+        "RF-19"
+      ],
+      "tipo": "automática",
+      "clase": "inválida",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F5, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F5"
+    },
+    {
+      "id": "PF-31",
+      "caso": "`requirements.txt` (con hardware) y `requirements-dev.txt` (con `Pillow>=9.1` y `pytest`, sin `rpi_ws281x` ni `adafruit-*`) existen por separado; el servicio de apagado lanza `apagado.sh` y el README documenta su permiso y que está reconstruido; los servicios con finales LF",
+      "requisitos": [
+        "RF-14",
+        "RF-15"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F5, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F5"
+    },
+    {
+      "id": "PF-32",
+      "caso": "`DEBUG` = 0 con tira simulada: lee el `configuracion.json` de la carpeta del código, no escribe LEDs, 2 vueltas (cada archivo con «preparamos imagen» dos veces) sin excepción; Windows sin librerías de hardware",
+      "requisitos": [
+        "RF-18"
+      ],
+      "tipo": "automática",
+      "clase": "robustez",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F5, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F5"
+    },
+    {
+      "id": "PF-33",
+      "caso": "Los enlaces relativos y las rutas de `README.md`, `raspberry-panel/README.md`, `archivo/README.md` y `doc/diseno/panel-raspberry.md` existen los defectos arreglados figuran como resueltos y `archivo/README.md` explica cómo recuperar (`git show f25ee46:<ruta>` o lo que fije T-32) y nombra cada carpeta de `archivo/`",
+      "requisitos": [
+        "RF-16"
+      ],
+      "tipo": "automática",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F6, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F6"
+    },
+    {
+      "id": "PF-34",
+      "caso": "En un venv nuevo de Windows con Python 3.11 o superior, `pip install -r requirements-dev.txt` y `pytest` arrancan; en la Pi, el panel arranca con `requirements.txt`",
+      "requisitos": [
+        "RF-14"
+      ],
+      "tipo": "mixta",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F5, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F5"
+    },
+    {
+      "id": "PF-35",
+      "caso": "`DEBUG` = 1 en el PC del usuario: se abre una ventana por frame escalado ×10, como hoy",
+      "requisitos": [
+        "RF-18"
+      ],
+      "tipo": "manual",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F5, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F5"
+    },
+    {
+      "id": "PF-36",
+      "caso": "En la Pi, con el `panel.service` del repositorio (`User=pi`): panel 0 rojo y 1 verde, las 12 pancartas igual y con los mismos tiempos, un GIF animado mayor que el panel y un GIF de 1 frame; instalados los dos servicios con el README, tras reiniciar el de apagado está `enabled` y activo y el panel lee el `configuracion.json` de su carpeta (UAT-12 y UAT-15)",
+      "requisitos": [
+        "RF-17",
+        "RF-7",
+        "RF-8"
+      ],
+      "tipo": "aceptación",
+      "clase": "positiva",
+      "estado": "fuera de ámbito",
+      "motivo": "pertenece a F6, posterior a F1",
+      "pasos": [],
+      "evidencias": [],
+      "observaciones": [],
+      "duracion_s": 0.0,
+      "fase": "F6"
+    }
+  ]
+}
