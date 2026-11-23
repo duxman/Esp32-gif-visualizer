@@ -1,0 +1,974 @@
+{
+  "archivo/navidad/panel/Animation.py": {
+    "mtime": 1764330070.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f67b4633fab1e4fb4ce594cba419e353",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/panel/AnimationServer.py": {
+    "mtime": 1764330070.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "830afa10f72a8f8c7121e6752403b461",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/panel/Config.py": {
+    "mtime": 1764330070.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "18b19cd894b49e5cd53d7fa88e2fe2be",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/panel/LedMatrixAnimation.py": {
+    "mtime": 1764330070.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "2c03ac2236dff8ee85f38c1b8be3f3d5",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/panel/Panel.py": {
+    "mtime": 1764330070.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "6d9eb126d1833a69c27917799d8ef44b",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/panel/configuracion.json": {
+    "mtime": 1764330070.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "470e231e51d78c58eae9388198be7504",
+    "semantic_hash": ""
+  },
+  "doc/pruebas/2026-11-23-panel-raspberry-arreglos/resultados-2026-11-23-135646.json": {
+    "mtime": 1795438607.9562435,
+    "seen": 1795456985.4121203,
+    "ast_hash": "e1343335a8aca463b98118a876ffc358",
+    "semantic_hash": ""
+  },
+  "esp32/src/gif_player.cpp": {
+    "mtime": 1792266386.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "0354849d8bda50ee38b96b1911005ca5",
+    "semantic_hash": ""
+  },
+  "esp32/src/gif_player.h": {
+    "mtime": 1792266386.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "67dc22c5644c5ccc720a6e293b3295d5",
+    "semantic_hash": ""
+  },
+  "esp32/src/main.cpp": {
+    "mtime": 1792266386.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "7c5cc59cf1c64cbdaf5f9fbfd87f9310",
+    "semantic_hash": ""
+  },
+  "pruebas/funcionales/panel-raspberry-arreglos/config.ejemplo.json": {
+    "mtime": 1795428472.6285727,
+    "seen": 1795456985.4121203,
+    "ast_hash": "d10cf8c62cd5621eff21d5313553a340",
+    "semantic_hash": ""
+  },
+  "pruebas/funcionales/panel-raspberry-arreglos/run.py": {
+    "mtime": 1795429545.13734,
+    "seen": 1795456985.4121203,
+    "ast_hash": "fc0cc8d792c50b219af818f605a28b8d",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/panel/Animation.py": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "a3152bbda7e489c01f8c92b2ba42723f",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/panel/AnimationServer.py": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "2cb4bd0d33109fc0f4ca2f818e2b2c99",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/panel/Config.py": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f28352314b910f2f7ad6ef03258d536b",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/panel/LedMatrixAnimation.py": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "dfda013208e3f221132472cdd91356a0",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/panel/Panel.py": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "c6e60f20dd736600c69f46b541800e5f",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/panel/apagado.sh": {
+    "mtime": 1792266386.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "7ab9de93a615401e88705833fb95f8fe",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/panel/configuracion.json": {
+    "mtime": 1792266386.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f724f4da7a8b82604ee60979fdb51db8",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1795361894.3716483,
+    "seen": 1795456985.4121203,
+    "ast_hash": "4e0673592351b6eba400cfdce7d49d6e",
+    "semantic_hash": ""
+  },
+  "doc/ESTADO.md": {
+    "mtime": 1795456646.0874035,
+    "seen": 1795456985.4121203,
+    "ast_hash": "7068fd123159a3febcac763e31f89b25",
+    "semantic_hash": ""
+  },
+  "doc/analisis/2026-11-22-panel-raspberry-arreglos.md": {
+    "mtime": 1795367130.4126666,
+    "seen": 1795456985.4121203,
+    "ast_hash": "c2dbbbebb1fcdd0ec201fc8806779050",
+    "semantic_hash": ""
+  },
+  "doc/arquitectura/2026-11-22-panel-raspberry-arreglos.md": {
+    "mtime": 1795367243.6683424,
+    "seen": 1795456985.4121203,
+    "ast_hash": "c343315b4c0e79d431cd77d74a38a658",
+    "semantic_hash": ""
+  },
+  "doc/decisiones-arquitectura.md": {
+    "mtime": 1795426348.3483617,
+    "seen": 1795456985.4121203,
+    "ast_hash": "0c6a6302bb17d4a2737d9ad07ffe762a",
+    "semantic_hash": ""
+  },
+  "doc/diseno/esp32-gif-visualizer.md": {
+    "mtime": 1794691550.7764459,
+    "seen": 1795456985.4121203,
+    "ast_hash": "d17a9435fa5edf76073f8b5dccea5018",
+    "semantic_hash": ""
+  },
+  "doc/diseno/indice.md": {
+    "mtime": 1794691555.229421,
+    "seen": 1795456985.4121203,
+    "ast_hash": "164aabe1593c40f98538707b05c372ae",
+    "semantic_hash": ""
+  },
+  "doc/diseno/panel-raspberry.md": {
+    "mtime": 1794691553.6384692,
+    "seen": 1795456985.4121203,
+    "ast_hash": "64ca3f468f1cb7c643ead6842d1d9ac1",
+    "semantic_hash": ""
+  },
+  "doc/pruebas/2026-11-23-panel-raspberry-arreglos/informe-2026-11-23-135646.md": {
+    "mtime": 1795438618.3873494,
+    "seen": 1795456985.4121203,
+    "ast_hash": "33362676a4efaa5ebacb497e68b09c7c",
+    "semantic_hash": ""
+  },
+  "doc/pruebas/2026-11-23-panel-raspberry-arreglos/plan.md": {
+    "mtime": 1795429521.0084102,
+    "seen": 1795456985.4121203,
+    "ast_hash": "3ea2fa232e056e1589b263c1b5f9b8ec",
+    "semantic_hash": ""
+  },
+  "doc/tareas/2026-11-22-panel-raspberry-arreglos.md": {
+    "mtime": 1795456645.9968736,
+    "seen": 1795456985.4121203,
+    "ast_hash": "464a41bd146b59b9ae1f05b9a0332d15",
+    "semantic_hash": ""
+  },
+  "doc/usuario/esp32-gif-visualizer.md": {
+    "mtime": 1795456629.9136033,
+    "seen": 1795456985.4121203,
+    "ast_hash": "9178b85f7c9fb6027ea62fbbdd70bd49",
+    "semantic_hash": ""
+  },
+  "esp32/README.md": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "15b7d8083dbabba4b2242da7116dc54a",
+    "semantic_hash": ""
+  },
+  "esp32/data/index.html": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "b5d9f7dad0b6cc8cbaf5c5474d79aeaf",
+    "semantic_hash": ""
+  },
+  "archivo/banners-antiguos/banner1.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f27f04eedeefd565b4655935b96cb8c7",
+    "semantic_hash": ""
+  },
+  "archivo/banners-antiguos/banner7.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "d2de4e28a9ee39e23c0032d88a514525",
+    "semantic_hash": ""
+  },
+  "archivo/banners-antiguos/banner8.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "b4c839c81bee28adc03d3a115055b64d",
+    "semantic_hash": ""
+  },
+  "archivo/banners-antiguos/banner9.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "c3bed566121391b5be0d9388ce993250",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1.png": {
+    "mtime": 1701011200.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "7b981178e5ba24404c9333372d2f59aa",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/1 (1).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "e5b6a2024b6998e1555045f58e23f125",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/1 (11).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "0c71ddbd1a9f3616e4309fac012d3e0c",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/1 (16).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "7b6f6654a36cf81427ed7a7aadb8339b",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/1 (21).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "7d889958b315c67e0bd33bcc85850c7d",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/1 (22).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "0d1b86a15b3d804922f44e515fa6f479",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/1 (23).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f49b604e47ece6ee76c1657271c4ef11",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/1 (24).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "c57beda705389913a33b23a7718f53a2",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/1 (25).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "d0808bf6e6ee228eb729d40ce0aead4e",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/1 (6).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "61c1e6854c0bd894c486c77e115fb87a",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/2 (10).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "008bce358f17ef04327cbd86323f1e65",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/2 (15).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "630485570592abaec969359a52a6c13f",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/2 (21).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "b3fa95df9f2418dcf7ee8059d59c43d0",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/2 (22).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "4bab980023309e05f47a133f9320bac2",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/2 (23).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "0e03b18459e83cbed24ae8d597d3fb84",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/2 (24).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "80caccddf1b17f9ceb8369a8b6ba4973",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/2 (25).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "5db67bbbf1997200b0cc79f4324cb41d",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/1/2 (5).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "6ffe707646f0749e43d4c5302a8adc5d",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/2.jpeg": {
+    "mtime": 1701010997.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "47910053cc08e2dbccc67f5db19df54c",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/3.jpeg": {
+    "mtime": 1701011003.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "84960c83b841ec8ffd0e2c151b27e872",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/4.jpeg": {
+    "mtime": 1701011012.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "641d8fad6a91292b6830a43af9929a7f",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/5.jpeg": {
+    "mtime": 1701011020.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f5589919e50ed864d984821479830ceb",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/6.png": {
+    "mtime": 1701011029.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "609a923bd84f7e47d40c30428fbe9b13",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/7.png": {
+    "mtime": 1701011039.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "30131fc3a5642188a07a6c3686daef23",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/cambiar.png": {
+    "mtime": 1735320497.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "2eb441ba778d205c40e6e381a87c1cdf",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (10).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "ef755e1b06720e31ee96197155a9218e",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (12).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "6f7eb100a8870a4158d9f9299700787b",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (13).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "7de0b31fb536ae693b26935c35db185c",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (14).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "aaea721caa1e12e1c7cf8101a5d3fc5f",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (15).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "421e5058b0f1e9c755b2a9dae00aca7f",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (17).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "154cb2c8a6699c4f63f9a1394bc86ed1",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (18).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "c6769a401cef9edad7ab6e7732a44cb6",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (19).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "8ff1abfc8055ac47a56025d4066843d4",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (2).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "3391d4ab65b9605c74bc9f13e6a95ac9",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (20).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "43316c8b5a26045695380f7c205375a3",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (3).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "66ded184cee84413e1d784f24f1a44d6",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (4).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "2591aef22299a7b9fd164db8877d7390",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (5).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f28a3d0e275a821fe1b6af607953505f",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (7).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f1a6bd5d61dbcdb52bfffedf188ce1bd",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (8).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "19b677f026644c852ecb8f230c943556",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/1 (9).png": {
+    "mtime": 1701011224.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "b0023af17266524f7aa91d8648badee6",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (1).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "2a858ca08d7ab3794f8926fda90061e6",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (11).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "beb004c95e25d630ddca90a2d9b9d4e2",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (12).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "9a6f19a2c592c4317df6c62f2f3e0e11",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (13).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "0522c1629666280555dc9bad84cb95f5",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (14).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "b4537ed9c11a12fa51126cab74a2ee53",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (16).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "38930cca09320f64314b219434b8ae9b",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (17).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "e950a98fb35a93ef5a42e869fc15f71b",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (18).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "b3c9a6a593ce1c965cea27f42ffe947a",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (19).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "a86665438d3bea1a19b44cbc87113005",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (2).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "8fe86513d7376f5413c02f8b1edfc081",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (3).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "67f45352044eb15c043325b0de690a96",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (4).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "03aea41c8f286c4b6d255b9c2708e4fa",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (6).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "c87c7834b0f3aec624cb2459c30f8615",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (7).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "d5e046a77109dff514aa5d1795099621",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (8).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "386e25fcd063bb8bc62af9ab4f603faf",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/2 (9).png": {
+    "mtime": 1701011302.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "4593da78fe7bc0ae6765ad0f12d706b6",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/3 (1).png": {
+    "mtime": 1701011100.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "6b231ee21b9af82acbad800415ba6523",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/3 (2).png": {
+    "mtime": 1701011100.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "35a06a736bc6c155ba900a0fc8998525",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/3 (3).png": {
+    "mtime": 1701011100.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "7627fc4e309334514c40ba6260020568",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/3 (4).png": {
+    "mtime": 1701011100.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "dc7bbbf4e7010c29d72475ad578e665e",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/3 (5).png": {
+    "mtime": 1701011100.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "52f52f5a1cd6de43bd04003a4cf44cdc",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/3 (6).png": {
+    "mtime": 1701011100.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "6111177bf9259ebad32e9de027aa27f2",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/3 (7).png": {
+    "mtime": 1701011100.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "606db2d6268dda0d1faa53ad2c4e0626",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/3 (8).png": {
+    "mtime": 1701011100.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "a5cdddee8bdce0faf75ac035edaec9c4",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/iconos/3 (9).png": {
+    "mtime": 1701011100.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "709d86db65530739774363a278bde317",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/ladron.png": {
+    "mtime": 1735320128.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "c5baadd8cf37fb4637d4a0f3e55b4734",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/pasar.png": {
+    "mtime": 1735320634.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "36c73490c87ece8ae34322b03c399d0d",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/premio.png": {
+    "mtime": 1735030778.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "88d21ed294398d9dfaf748135b7a8f15",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/regalo cambio.png": {
+    "mtime": 1735030764.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "e8c914c5bfff314002743a981de63c4f",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/regalo robo.png": {
+    "mtime": 1735030803.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "d7e7b8ab95b4deafe7f4c05010843cea",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/regalo.png": {
+    "mtime": 1735320223.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "739b98a64a73c2077628763d83487a5d",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/robo.png": {
+    "mtime": 1735030815.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "2ce0b19aa143f544e459831dc33ac358",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros navidad/todo.png": {
+    "mtime": 1735320300.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "c4d6efefb30564bb4ea42d91714889d7",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros/banner7-1.png": {
+    "mtime": 1701623779.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "68aec2f7d8fc0c104cac8cd49fa2a87d",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/ficheros/banner8-1.png": {
+    "mtime": 1701623869.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "d38aa68d36060c384e43f1785cbe4deb",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/globos/1.png": {
+    "mtime": 1701012471.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "3caf2d5beb15d4b609e044ca7056a473",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/globos/2.png": {
+    "mtime": 1701012473.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "0628e52241829d6424e795fb9d94ad01",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/globos/3.png": {
+    "mtime": 1701012475.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "e3f3692708343125fdf0ee49eb51d537",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/iconos/banners/old/Sin t\u00edtulo.png": {
+    "mtime": 1765188627.8644407,
+    "seen": 1795456985.4121203,
+    "ast_hash": "c624119c266f7c4e4fd2fb2010bc7794",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/iconos/banners/old/banner7.png": {
+    "mtime": 1765188628.8041947,
+    "seen": 1795456985.4121203,
+    "ast_hash": "537fb68fa073514bdf01f6ff0db117e9",
+    "semantic_hash": ""
+  },
+  "archivo/navidad/iconos/banners/old/logo.png": {
+    "mtime": 1775397559.50332,
+    "seen": 1795456985.4121203,
+    "ast_hash": "fd30e0634fb2248d3e5b9b864f52597e",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner1.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "d878ba35d24b240642b4a01a8367ffea",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner10.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "e8ccb58740200c483b26b06c603db562",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner11.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "eea601e79d7f79b8a18a392a1c7fb8be",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner12.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "36aeffc851efe46204fd12f49ac0f8ea",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner2.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "faa2175e00cec782f9ba56443dd332a0",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner3.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "eb92e5fa8049d9b2992816619e02aad9",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner4.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "e0b512c51cbca732dee06cce4d6da3f4",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner5.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "477b7e064f6d5efcc5c8b815aa683c51",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner6.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "a1daacb9637e3210b58d7b1d6179c784",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner7.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f0fad58d47ad4c45286ce5c41158295d",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner8.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "06b58a3dd412274467872cea05e12802",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/banner9.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "b05e9568cf3194bf61421509a51af7aa",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/10_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "bd2d3e6d94e189c439e198f31a3a5341",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/11_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "d921e6a8ce7fa39f4139e27d21227f7c",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/12_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "e7d6cd59fb469b2ce6cf7f5cf31d7ee4",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/13_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "58ca1dd463a2b89665545d4e5bc65992",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/14_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "0eaba538a4cdfb88c9ec6d4e5bbd41e7",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/15_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "329faf9301b38d0b4619b67c3be9f2d1",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/16_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f55e703be52280cc2df689065c758862",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/17_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "bf89fe9895889d1e11a797158e2a05ca",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/18_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "ef296ccd43404e3a8054acc3e40ee9fa",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/19_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "6464f4499c9b5f2e86367ab1a2ef821a",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/1_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "ee59146f0fa63b529cf012c2bedb9ad7",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/20_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "4603ef88bcd69a98d8016351b26daa62",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/21_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "d871c26ed5bcc40d0001177eeda61f0c",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/22_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "e665e1f6d4f03b54001af5ffe605a1fa",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/23_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "53840ae24d1cdd4ff7f3613d8ddd3fde",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/24_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "aa5d0df16f60b3b3d17f852b2c2ff6f5",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/25_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f0c6229ced2d4cbbc60fa5e20adee346",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/26_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "a46621b1da326df4e9295fdce6dd6145",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/27_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "ef10f96222bb3e750c8b21b67c55b0a0",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/28_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "28c9ef297d3fbc00cad352e984e19ef6",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/2_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "77692e410ba0fea92a3585b19064ca23",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/3_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "a611e54c29a0326e9c4610ebdf29dccc",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/4_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "cb50bdd00e32014e945ab46307eec784",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/5_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "b289f9975232c85cdb9936602408dd66",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/6_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "1517edfd86f75a133ceb5e4e182da95e",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/7_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "4202dd8f29bc0d4baa7c07d1508991ec",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/8_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "192e48bc538864a5365483fd7ca6019e",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/9_18px.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "98cfd0c9f89678ecd56ccae28b9f1e29",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/banners/banner1.png": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "1d9ea6c60ba701cad05b3fbac8926d59",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/banners/example1.gif": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "f1da277d1650bc0d274fd0a5794fc8d0",
+    "semantic_hash": ""
+  },
+  "raspberry-panel/ficheros/iconos/banners/example2.gif": {
+    "mtime": 1792266385.0,
+    "seen": 1795456985.4121203,
+    "ast_hash": "3263e00b41a6c66ce27b71ded4020ef4",
+    "semantic_hash": ""
+  }
+}
